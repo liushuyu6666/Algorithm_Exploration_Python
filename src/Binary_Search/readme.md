@@ -12,3 +12,5 @@ There are two kinds of both included:
 2. right strict:
    - After moving the "right pointer", all elements to the right of the "right pointer" must be larger than the target value. All elements to the left of the "right pointer" including the element pointed to by the "right pointer" must be equal to or lower than the target value. In other words, the "right pointer" points to the value that is equal to or lower than the target.
    - At the end of the iteration, the value pointed to by the "right pointer" is the target value. When an exact value isn't found, the nearest lower value is selected. If all values are larger than the target, the "right pointer" moves beyond the left boundary.
+
+This diagram illustrates the movement of pointers in the binary search algorithm when both edges are inclusive. ![binary search both included](both_included.png). At the final state, the right pointer always points to the position directly adjacent to the left of the left pointer.
