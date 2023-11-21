@@ -28,7 +28,7 @@ class MaxHeap:
             curr_index = parent_index
             parent_index = curr_index // 2
 
-    def larger_child(self, curr_index: int) -> int or None:
+    def find_larger_child(self, curr_index: int) -> int or None:
         left_child, right_child = curr_index * 2, curr_index * 2 + 1
 
         if curr_index > self.size or curr_index <= 0 or left_child > self.size:
@@ -41,13 +41,13 @@ class MaxHeap:
         if curr_index > self.size or curr_index <= 0:
             return None
 
-        child = self.larger_child(curr_index)
+        child = self.find_larger_child(curr_index)
 
         while child is not None:
             if self.heap[child] > self.heap[curr_index]:
                 self.swap(child, curr_index)
             curr_index = child
-            child = self.larger_child(curr_index)
+            child = self.find_larger_child(curr_index)
 
     def push(self, new_num: int) -> None:
         self.size += 1
