@@ -17,10 +17,10 @@ class MaxHeap:
         self.heap[j] = temp
 
     def swim(self, curr_index: int) -> None:
-        if curr_index > self.size or curr_index <= 0:
-            return None
-
         parent_index = curr_index // 2
+
+        if curr_index > self.size or curr_index <= 0 or parent_index <= 0:
+            return None
 
         while parent_index > 0:
             if self.heap[curr_index] > self.heap[parent_index]:
@@ -38,10 +38,10 @@ class MaxHeap:
             or self.heap[left_child] > self.heap[right_child] else right_child
 
     def sink(self, curr_index) -> None:
-        if curr_index > self.size or curr_index <= 0:
-            return None
-
         child = self.find_larger_child(curr_index)
+
+        if curr_index > self.size or curr_index <= 0 or child is None:
+            return None
 
         while child is not None:
             if self.heap[child] > self.heap[curr_index]:
