@@ -34,3 +34,6 @@ The implementation of the max heap involves utilizing an array to store all elem
 5. Pop: Remove the top node, place the last node at the top, then perform a 'sink' operation on this new top node.
 
 Refer to the provided code for comprehensive details on the implementation of these operations.
+
+## Min Heap Implementation
+A min-heap is implemented similarly to a max-heap, with the key difference being that in a min-heap, each parent node is smaller than its children.
