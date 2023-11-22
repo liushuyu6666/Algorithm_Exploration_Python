@@ -43,8 +43,8 @@ class TestHeap(unittest.TestCase):
         self.assertEqual(min_heap.top(), 3)
         self.test_min_heap_characteristics(min_heap)
 
-        min_heap.push(1)
-        self.assertEqual(min_heap.top(), 1)
+        min_heap.push(-3)
+        self.assertEqual(min_heap.top(), -3)
         self.test_min_heap_characteristics(min_heap)
 
 
