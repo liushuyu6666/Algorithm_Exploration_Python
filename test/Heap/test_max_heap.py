@@ -43,6 +43,10 @@ class TestHeap(unittest.TestCase):
         self.assertEqual(max_heap.top(), 6)
         self.test_max_heap_characteristics(max_heap)
 
+        max_heap.push(10)
+        self.assertEqual(max_heap.top(), 10)
+        self.test_max_heap_characteristics(max_heap)
+
 
 if __name__ == "__main__":
     unittest.main()

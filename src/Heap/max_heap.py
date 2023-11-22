@@ -51,7 +51,7 @@ class MaxHeap:
 
     def push(self, new_num: int) -> None:
         self.size += 1
-        self.heap.append(new_num)
+        self.heap.insert(self.size, new_num)
         self.swim(self.size)
 
     def pop(self) -> None:
