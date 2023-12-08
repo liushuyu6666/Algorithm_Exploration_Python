@@ -37,3 +37,10 @@ Refer to the provided code for comprehensive details on the implementation of th
 
 ## Min Heap Implementation
 A min-heap is implemented similarly to a max-heap, with the key difference being that in a min-heap, each parent node is smaller than its children.
+
+# Keep in Mind
+1. A placeholder element will be added at the head of the heap, so that:
+   1. `left_child_index` = `curr_index` * 2
+   2. `right_child_index` = `curr_index` * 2 + 1
+   3. `parent_index` = `curr_index` // 2
+
