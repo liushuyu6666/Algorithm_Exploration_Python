@@ -40,7 +40,14 @@ A min-heap is implemented similarly to a max-heap, with the key difference being
 
 # Keep in Mind
 1. A placeholder element will be added at the head of the heap, so that:
-   1. `left_child_index` = `curr_index` * 2
-   2. `right_child_index` = `curr_index` * 2 + 1
-   3. `parent_index` = `curr_index` // 2
+    ```python
+    `left_child_index` = `curr_index` * 2.
+    `right_child_index` = `curr_index` * 2 + 1.
+    `parent_index` = `curr_index` // 2.
+    ```
+3. In `sink()`, `swim()`, `find_larger_child()`, and `find_smaller_child()`, check the left and right boundaries of `curr_index` first.
+4. In both min heap and max heap:
+   1. Use `sink()` for initialization.
+   2. Use `swim()` for `push()`.
+   3. Use `sink()` for `pop()`.
 
