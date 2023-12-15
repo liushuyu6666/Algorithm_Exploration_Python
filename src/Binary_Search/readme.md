@@ -36,5 +36,8 @@ It's essential to consider scenarios where the exact target value may not exist.
 For a more detailed understanding, refer to the following table:
 ![final index of both included when exact ](both_included_final_index.png)
 
+### Some Variations
+#### find minimum in rotated sorted array ii
+The question involves a rotated sorted array, indicating it comprises at most two monotonically increasing chunks. Refer to the [code](https://github.com/liushuyu6666/Algorithm_Leetcode_Python/tree/master/src/Find_Minimum_in_Rotated_Sorted_Array_II) for details on "end condition" and "update right pointer."
 
   
