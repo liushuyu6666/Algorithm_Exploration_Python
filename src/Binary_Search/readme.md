@@ -24,11 +24,15 @@ With these considerations, including four aspects, one edge case, and two fixed 
 ![both_included_pattern](both_included_pattern.png)
 for a visual representation.
 
-- "end condition" - "update right pointer" pair:
-Notably, the interplay between the "end condition" and "update right pointer" is crucial. When using `left == right` as the end condition, opt for a "left strict" mode to ensure the left pointer doesn't miss the possible target value.
+Remember the strict mode means the pointer shouldn't miss any possible value or include any impossible value.
+There are four scenarios; let's start from end conditions:
+1. End condition: `left == right`: End condition: left == right: This means both the left and right pointer must be strict; both left and right shouldn't miss possible values. Based on that:
+   1. If `middle = (left + right) // 2`: the middle will be closer to the left pointer, so we must always update the left pointer by `left = middle + 1`. To ensure the left pointer is strict, we can only move the left pointer when `sorted_nums[middle] < target`.
+   2. If `middle = (left + right) // 2 + 1`: the middle will be closer to the right pointer, so we must always update the right pointer by `right = middle - 1`. To ensure the right pointer is strict, we can only move the right pointer when `sorted_nums[middle] > target`.
+2. End condition: `left <= right`: if we update the middle by `middle = (left + right)`, which means the middle pointer will always be closer to the left pointer, so there is only one way to update the left pointer `left = middle + 1`.
+   1. If we update the left pointer by `sorted_nums[middle] < target`, which means it is a left strict method, so, how should we update the right pointer? Imagine the edge case: if we update the right pointer by `right = middle`, the left pointer and right pointer will be overlapped and go into an infinite loop. So, we can only update the right pointer by `right = middle - 1`. We need to return the left pointer.
+   2. If we update the left pointer by `sorted_nums[middle] <= target`, which means it is a right strict method, so, how should we update the right pointer? When we use `sorted_nums[middle] <= target` for our left pointer update condition, the right pointer update condition will be `sorted_nums[middle] > target`. Because it is a right strict, the right pointer shouldn't miss any possible value or include any impossible value, so we only update it by `right = middle - 1`, and we will return the right pointer."
 
-- "update condition" - "return pointer" pair:
-The "update condition" and "return pointer" exhibit a paired relationship. In "left strict" mode, the left pointer is returned, aiming not to overlook the target value and keeping the possible target value to its right. Conversely, in "left loose" mode (akin to "right strict"), the right pointer is returned, ensuring not to miss the target value and keeping the possible target value to its left.
 
 ### Fuzzy target
 It's essential to consider scenarios where the exact target value may not exist. In "left strict" mode, the left pointer tends to point to the larger value, while in "left loose" mode, the right pointer tends to point to a smaller value. Therefore, the "left strict" mode selects the nearest larger value, while the "left loose" mode chooses the nearest lower value. Additionally, the stop condition determines whether the final index surpasses the boundary.
