@@ -1,6 +1,7 @@
 import math
 from typing import List
 
+
 #  Please first understand
 #  1) both_included_both_strict_left
 #  2) both_included_left_strict
@@ -35,7 +36,6 @@ class BinarySearch:
 
         return right  # left strict
 
-
     @staticmethod
     def both_included_left_strict(sorted_nums: List[int], target: int) -> int:
         left, right = 0, len(sorted_nums) - 1
@@ -61,4 +61,3 @@ class BinarySearch:
                 right = middle - 1
 
         return right
-

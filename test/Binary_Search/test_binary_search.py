@@ -28,6 +28,10 @@ class TestBinarySearch(unittest.TestCase):
         arr, target, index = [11, 12, 13, 15, 16], 1, 0
         self.assertEqual(binary_search.both_included_both_strict_left(arr, target), index)
 
+        # when there are more than one target value
+        arr, target, index = [3, 4, 4, 4, 5, 6], 4, 1
+        self.assertEqual(binary_search.both_included_both_strict_left(arr, target), index)
+
     def test_both_included_both_strict_right(self):
         binary_search = BinarySearch()
 
